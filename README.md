@@ -1,5 +1,5 @@
-#数据库系统概论课程笔记
-##第三次上机  `数据库大作业` 
+# 数据库系统概论课程笔记
+## 第三次上机  `数据库大作业` 
 ==已经于6月6日上机课交于老师检查==
 
 使用`MySQL5.7 + Java`实现, 使用`MVC框架`进行开发
@@ -7,7 +7,7 @@
 为了简化操作，找到适合自己的关系模式，我只用了一个student关系存储数据
 
 其中：`reward为可空`。
-###在数据库中建立student表：
+### 在数据库中建立student表：
 
 ```sql
 CREATE TABLE `students` (
@@ -20,13 +20,13 @@ CREATE TABLE `students` (
   PRIMARY KEY (`num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
-####性别约束使用枚举类型：
+#### 性别约束使用枚举类型：
 <img src="image/20.png">
-####年龄约束使用触发器：
+#### 年龄约束使用触发器：
 <img src="image/21.png">
 >一个合理的操作过程是在数据库操作的时候发生SQL异常，并在Java程序中将SQl异常捕获，并进行处理。
 
-###使用JDBC连接数据库，将获得数据库连接操作封装成类：
+### 使用JDBC连接数据库，将获得数据库连接操作封装成类：
 
 ```java
 package db;
@@ -60,7 +60,7 @@ public class DBConnent {
 	}
 }
 ```
-###Mode层，对数据库内容映射，并重写toString方法：
+### Mode层，对数据库内容映射，并重写toString方法：
 
 ```java
 package model;
@@ -130,7 +130,7 @@ public class Student {
 }
 
 ```
-###DAO层，封装对数据库student表的操作 `增``删``改``查`:
+### DAO层，封装对数据库student表的操作 `增``删``改``查`:
 
 ```java
 package dao;
@@ -265,7 +265,7 @@ public class StudentDao {
         
 }
 ```
-###Controller层，将前台操作封装：
+### Controller层，将前台操作封装：
 
 ```java
 package action;
@@ -395,9 +395,9 @@ public class StudentAction {
     }
 }
 ```
-###View层利用Java.Swing开发，代码重复较多，不予以展示
+### View层利用Java.Swing开发，代码重复较多，不予以展示
 可以点击链接访问Github查看[https://github.com/Zlatanlong/dblearning](https://github.com/Zlatanlong/dblearning)
-###使用操作
+### 使用操作
 主界面有**5**个功能：
 
 * 增加学生
@@ -406,9 +406,9 @@ public class StudentAction {
 * 查询学生
 * 按照学生修改
 
-####浏览学生：点击后直接能查看学生信息
+#### 浏览学生：点击后直接能查看学生信息
 <img src="image/1.png">
-####增加学生：点击后直接能查看学生信息
+#### 增加学生：点击后直接能查看学生信息
 <img src="image/2.png">
 <img src="image/3.png">
 <img src="image/4.png">
@@ -419,36 +419,36 @@ public class StudentAction {
 <img src="image/6.png">
 数据库中也可以查询到：
 <img src="image/7.png">
-###删除学生：
-####较为人性化的添加了一个查看功能，如果没有该学号则显示**没找到！**，否则显示学生信息。
+### 删除学生：
+#### 较为人性化的添加了一个查看功能，如果没有该学号则显示**没找到！**，否则显示学生信息。
 <img src="image/8.png">
 <img src="image/9.png">
 <img src="image/10.png">
-####浏览检查，并在数据库中查看，确定已经删除
+#### 浏览检查，并在数据库中查看，确定已经删除
 <img src="image/11.png">
 <img src="image/12.png">
-###查询学生
-####如果没有该信息的学生，则显示没找到！
+### 查询学生
+#### 如果没有该信息的学生，则显示没找到！
 <img src="image/13.png">
 ####有则显示结果
 <img src="image/14.png">
 <img src="image/15.png">
-###按照学生学号修改学生年龄
-####该功能相当于查询和更新操作，若没找到学号也会显示“没找到！”，与之前相似，不给予展示，展示成功操作截图：
+### 按照学生学号修改学生年龄
+#### 该功能相当于查询和更新操作，若没找到学号也会显示“没找到！”，与之前相似，不给予展示，展示成功操作截图：
 <img src="image/16.png">
 <img src="image/17.png">
-####在浏览和数据库中确认功能：
+#### 在浏览和数据库中确认功能：
 <img src="image/18.png">
 <img src="image/19.png">
-###大作业全部功能均完成！
-##第四次上机  2018-5-23
+### 大作业全部功能均完成！
+## 第四次上机  2018-5-23
 要求：用**`SQL语言`**完成第五版书上P130页作业4，5和9题
 
 * 创建了四个表
 * 对表进行了`增``删``改``查`等一系列操作
 * 用SQL Server 2005 和 MySQL 5.7 两种数据库都进行了操作，若不加以说明，下面展示的是均为MySQL的代码
 
-###新建Supplier表并插入数据
+### 新建Supplier表并插入数据
 ~~~sql
 create table Supplier
 (sno char(2)primary key,
@@ -468,7 +468,7 @@ values('S4','丰泰盛',20,'天津');
 insert into Supplier(sno,sname,status,city)
 values('S5','为民',30,'上海');
 ~~~
-###新建Parts表并插入数据
+### 新建Parts表并插入数据
 ```sql
 create table Parts
 (pno char(2) primary key,
@@ -490,7 +490,7 @@ values('P5','凸轮','蓝','40');
 insert into Parts(pno,pname,color,weight)
 values('P6','齿轮','红','30');
 ```
-###新建Jtable表并插入数据
+### 新建Jtable表并插入数据
 ```sql
 create table Jtable
 (jno char(2) primary key,
@@ -513,7 +513,7 @@ values('J6','无线电厂','常州');
 insert into Jtable(jno,jname,city)
 values('J7','半导体厂','南京');
 ```
-###新建SPJ表并插入数据
+### 新建SPJ表并插入数据
 ```sql
 create table SPJ
 (sno char(2),
@@ -566,7 +566,7 @@ insert into SPJ(sno,pno,jno,qty)
 values('S5','P6','J4',500);
 ```
 
-###第四题：
+### 第四题：
 4.1
 
 ```sql
@@ -839,7 +839,7 @@ and  (WEEKDAY(now()) in(0,1,2,3,4));
 >
 >WEEKDAY(now()) 获取当前星期 0为星期一 6为星期天
 
-####创建用户  	
+#### 创建用户  	
 mysql中创建用户
 
 ```sql
@@ -865,7 +865,7 @@ SELECT GETDATE() AS CurrentDateTime
 ```
 
 -
-###触发器操作
+### 触发器操作
 在MySQL中，创建触发器语法如下：
 
 ```sql
@@ -889,7 +889,7 @@ trigger_stmt：触发器程序体，可以是一句SQL语句，或者用 BEGIN �
 由此可见，可以建立6种触发器，即：BEFORE INSERT、BEFORE UPDATE、BEFORE DELETE、AFTER INSERT、AFTER UPDATE、AFTER DELETE。
 
 另外有一个限制是不能同时在一个表上建立2个相同类型的触发器，因此在一个表上最多建立6个触发器。
-####BEGIN … END 详解
+#### BEGIN … END 详解
 在MySQL中，BEGIN … END 语句的语法为：
 
 ```sql
@@ -905,7 +905,7 @@ END
 new_delemiter` 可以设为1个或多个长度的符号，默认的是分号（;），我们可以把它修改为其他符号，如 &：DELIMITER & 在这之后的语句，以分号结束，解释器不会有什么反应，只有遇到了&，才认为是语句结束。注意，使用完之后，我们还应该记得把它给修改回来。
 
 -
-###触发器例题：
+### 触发器例题：
 在学生选课表SC上创建一个触发器trigger_student1,该触发器被insert操作触发，当用户向SC表插入一条新记录时，判断该记录的学号在学生基本信息表S中是否存在，如果存在则插入成功，否则插入失败。
 
 ```sql
@@ -931,7 +931,7 @@ update sc
     set sno = new.sno
     where sc.sno = old.sno;
 ```
-##第七次上机 2018-6-13
+## 第七次上机 2018-6-13
 T-SQL练习：本次上机先进行了T-SQL练习，*T-SQL是SQL Server的核心内容*，相关代码均为在SQL Server 2005中实现。
 
 * 学生选课数据库中，如果数据库课程的成绩高于75分，则显示信息“平均成绩高于75分”
